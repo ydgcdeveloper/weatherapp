@@ -28,6 +28,7 @@ export class SearchPage implements OnInit {
   search() {
     this.listToShow.splice(0, this.listToShow.length);
     if (this.searchValue.length < 3) return;
+    this.searchValue = this.searchValue.trim();
     this.data.forEach(element => {
       if (element.name.toLowerCase().includes(this.searchValue.toLowerCase())) {
         this.listToShow.push(element);
