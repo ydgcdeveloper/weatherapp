@@ -1,15 +1,15 @@
 <ion-header>
-  <ion-searchbar clearIcon="true" (ionChange)="search()" [(ngModel)]="searchValue" cancelButtonIcon="true">
-    <ion-input [autofocus]="true"   type="text" placeholder="Search" ></ion-input>
+  <ion-searchbar autofocus="true" placeholder="Place" clearIcon="close-sharp" showCancelButton="focus"  (ionChange)="search()" [(ngModel)]="searchValue"
+    cancelButtonIcon="true">
   </ion-searchbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-      <ion-item *ngFor="let item of listToShow; index as i" class="ion-margin-end" [routerLink]="['/home/' + item.id]">
-        <ion-col size="6"> {{ item.name }}</ion-col>
-        <ion-col size="2" *ngIf="item.state"> {{ item.state }}</ion-col>
-        <ion-col size="4"> {{ item.country }}</ion-col>
-      </ion-item>
+    <ion-item *ngFor="let item of listToShow; index as i" class="ion-margin-end" [routerLink]="['/home/' + item.id]">
+      <ion-col size="6"> {{ item.name }}</ion-col>
+      <ion-col size="2" *ngIf="item.state"> {{ item.state }}</ion-col>
+      <ion-col size="4"> {{ item.country }}</ion-col>
+    </ion-item>
   </ion-list>
 </ion-content>

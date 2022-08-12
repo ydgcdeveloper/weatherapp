@@ -13,7 +13,7 @@ const API_URL = environment.API_URL;
 })
 export class HomePage implements OnInit {
 
-  weatherTemp: any
+  weather: any
   todayDate = new Date();
   cityName: any
   weatherDetails: any
@@ -35,11 +35,10 @@ export class HomePage implements OnInit {
     this.paramId = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.httpClient.get(`${API_URL}weather?id=${this.paramId}&appid=${API_KEY}`).subscribe(data => {
-      this.weatherTemp = data['main']
+      this.weather = data['main']
       this.cityName = data['name']
       this.weatherDetails = data['weather'][0]
       this.weatherIcon = `http://openweathermap.org/img/wn/${this.weatherDetails.icon}@4x.png`
-      console.log(this.weatherIcon);
     });
   }
 

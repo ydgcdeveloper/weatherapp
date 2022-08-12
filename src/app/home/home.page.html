@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="weather">
   <ion-card>
 
     <ion-item lines="none">
@@ -10,13 +10,13 @@
 
     <ion-item>
       <span>
-        {{(weatherTemp?.temp - 273.15).toFixed(0)}} °C
+        {{(weather?.temp - 273.15).toFixed(0)}} °C
       </span>
       <img slot="end" [src]=weatherIcon>
     </ion-item>
 
     <ion-item href="/search">
-      <ion-icon name="location"> </ion-icon>
+      <ion-icon name="location" slot="end"> </ion-icon>
       <span>{{cityName}}</span>
     </ion-item>
   </ion-card>
@@ -24,15 +24,15 @@
   <ion-card>
     <ion-item>
       <span>Maximum Temp </span>
-      <span slot="end">{{(weatherTemp?.temp_max - 273.15).toFixed(0)}} °C</span>
+      <span slot="end">{{(weather?.temp_max - 273.15).toFixed(0)}} °C</span>
     </ion-item>
     <ion-item>
       <span>Minimum Temp</span>
-      <span slot="end">{{(weatherTemp?.temp_min - 273.15).toFixed(0)}} °C</span>
+      <span slot="end">{{(weather?.temp_min - 273.15).toFixed(0)}} °C</span>
     </ion-item>
     <ion-item>
       <span>Humidity</span>
-      <span slot="end">{{weatherTemp?.humidity}} %</span>
+      <span slot="end">{{weather?.humidity}} %</span>
     </ion-item>
   </ion-card>
 </ion-content>
